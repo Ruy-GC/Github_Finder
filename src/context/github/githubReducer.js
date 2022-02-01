@@ -19,11 +19,26 @@ export default (state,action) =>{
             }
         
         case SEARCH_USERS:
-            return{
+            return {
                 ...state,
                 users: action.payload, //obtiene la carga de usuarios de la acción
                 loading: false
             }
+
+        case CLEAR_USERS:
+            return {
+                ...state,
+                users: [],
+                loading:false
+            }
+        
+        case GET_USER:
+            return {
+                ...state,
+                user: action.payload,
+                loading:false
+            }
+            
         default:
             return state;
     }
