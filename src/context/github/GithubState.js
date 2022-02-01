@@ -49,14 +49,28 @@ const GithubState = props => {
             payload: res.data
         });
     };
+
     //Get Repos
+    const getUserRepos = async username =>{
+        setLoading();
+    
+        const res = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id= ${process.env.React_APP_GITHUB_CLIENT_ID} 
+        &client_secret = ${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
+        
+        dispatch({
+            type: GET_REPOS,
+            payload: res.data
+        })
+      };
 
     //Clear Users
     const clearUsers = () => dispatch({type: CLEAR_USERS})
+    
     //Set Loading
     const setLoading = () => dispatch({type: SET_LOADING});
 
     return <GithubContext.Provider
+        //aquí se incluyen las variables de estado y funciones para poder ser utilizadas en otros componentes
         value = {{
             users: state.users,
             user: state.user,
@@ -64,7 +78,8 @@ const GithubState = props => {
             loading: state.loading,
             searchUsers,
             clearUsers,
-            getUser
+            getUser,
+            getUserRepos
         }}
     >
         {props.children}
