@@ -1,5 +1,7 @@
 # Github Finder
 
-This React app is from an online course I took to learn react.
+React app developed during the course "React Front to Back" by Brad Traversy. 
 
-The app worksas a way to search a github user, after searching for a user you are able to see the account details and its repositories
+This app works using the github API to search users and siplay their public information such as repos and bio. Learning the basics of react and refactoring the application using tools like context and hooks. 
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/53b5ce27-fe3c-494b-bc13-7c1afe7d50a6/deploy-status)](https://app.netlify.com/sites/githubfinderrgc/deploys)
